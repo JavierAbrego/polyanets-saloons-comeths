@@ -24,13 +24,11 @@ const getAstralTypeFromCell = (cell: string): {
 const SPACE = 'SPACE'
 
 export const solveGoal = async () => {
-
 	const goalMapResponse = await getGoalMap()
 	const goal = goalMapResponse.data.goal
 
 	const buildQueue = () => {
 		const queue: Array<() => Promise<AxiosResponse<any, any>>> = []
-
 		const createCellIfNeeded = (x: number) =>
 			async (cell: string, y: number) => {
 				if (cell !== SPACE) {
